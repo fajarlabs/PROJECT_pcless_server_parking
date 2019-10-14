@@ -2,6 +2,11 @@ import multiprocessing
 import socket
 import time
 
+"""
+AUTHOR : Fajarlabs
+WHATSAPP : 089663159652
+"""
+
 HOST = "0.0.0.0"
 PORT = 5001
 

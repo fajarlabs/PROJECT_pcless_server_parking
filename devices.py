@@ -1,3 +1,8 @@
+"""
+AUTHOR : Fajarlabs
+WHATSAPP : 089663159652
+"""
+
 def get_all_device():
 	result = []
 	with open("devices.txt", 'r') as f:

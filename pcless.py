@@ -1,6 +1,11 @@
 import socket
 import time
 
+"""
+AUTHOR : Fajarlabs
+WHATSAPP : 089663159652
+"""
+
 # MUST USE BEETWEEN FORMAT
 # CONST DATA FORMAT 
 HEADER = "\xa6"
