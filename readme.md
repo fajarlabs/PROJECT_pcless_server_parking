@@ -18,3 +18,7 @@ optional arguments: <br /><br />
   -ctvu CCTV_USER, --cctv_user CCTV_USER Set CCTV user <br />
   -ctvp CCTV_PASS, --cctv_pass CCTV_PASS Set CCTV pass <br />
   -pth PATH, --path PATH Set path <br />
+
+<br />
+POSTMAN<br/>
+![Screenshot](https://i.ibb.co/T45Nkvp/how-request.jpg)
