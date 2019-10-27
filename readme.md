@@ -23,6 +23,8 @@ for windows executable <br />
 cd /output/webserver <br />
 > webserver.exe -H 0.0.0.0 -P 80 -ctv "http://admin:Spasi2019@192.168.0.100/ISAPI/Streaming/channels/101/picture" <br />
 -ctvu "admin" -ctvp "Spasi2019" -pth "F:\\DIY\\SOFTWARE\\udp_forwarder\\captures" -plh 192.168.0.50 -plp 5000
-<br /><br />
-POSTMAN<br/>
+
+<br />
+<br />
+#POSTMAN<br/>
 <img src="https://i.ibb.co/T45Nkvp/how-request.jpg" />
