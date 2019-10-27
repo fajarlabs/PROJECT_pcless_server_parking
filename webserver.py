@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import logging
 from bottle import route, run, request, response
 from json import dumps
