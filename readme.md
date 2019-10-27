@@ -21,4 +21,4 @@ optional arguments: <br /><br />
 
 <br />
 POSTMAN<br/>
-![Screenshot](https://i.ibb.co/T45Nkvp/how-request.jpg)
+![alt text](https://i.ibb.co/T45Nkvp/how-request.jpg)
