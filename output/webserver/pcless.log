@@ -3608,3 +3608,11 @@
 27-Oct-19 12:06:08 - Starting Timeloop..
 27-Oct-19 12:06:08 - Registered job <function workflow_job at 0x000001CB3FC53B88>
 27-Oct-19 12:06:08 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 12:55:19 - Starting Timeloop..
+27-Oct-19 12:55:19 - Registered job <function workflow_job at 0x000001FF91D23B88>
+27-Oct-19 12:55:19 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 14:55:53 - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+27-Oct-19 14:55:53 - Starting Timeloop..
+27-Oct-19 14:55:53 - [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+27-Oct-19 14:55:53 - Registered job <function workflow_job at 0x000001A8553D3B88>
+27-Oct-19 14:55:53 - Timeloop now started. Jobs will run based on the interval set
