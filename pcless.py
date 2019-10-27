@@ -1,10 +1,7 @@
 import socket
 import time
-
-"""
-AUTHOR : Fajarlabs
-WHATSAPP : 089663159652
-"""
+import sys
+import logging
 
 # MUST USE BEETWEEN FORMAT
 # CONST DATA FORMAT 
@@ -19,7 +16,9 @@ class PCLess(object):
 		self.reconnect = True
 		self.ip = ip
 		self.port = port
+		self.track_flow = 0
 	
+	# command format 
 	def format_command(self, cmd):
 		return HEADER+cmd+FOOTER
 
@@ -33,57 +32,20 @@ class PCLess(object):
 
 		return result
 
+
 	"""
 	Function to connecting socket
 	"""
 	def connect(self):
 		result = True
 		try :
-			self.s = socket.socket()
+			self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			self.s.connect((self.ip, self.port))
+			# self.s.setblocking(1)
+			# self.s.settimeout(10)
 		except Exception as e :
 			result = False
-			print(e)
-
-		return result
-
-	"""
-	Function disconnecting socket
-	"""
-	def disconnect(self):
-		result = True
-		try :
-			if (s != None):
-				self.s.close()
-		except Exception as e :
-			result = False
-			print(e)
-
-		return result
-
-	"""
-	Function send data
-	"""
-	def send(self, data):
-		result = True
-		try :
-			self.s.send(data.encode('CP1252'))
-		except Exception as e :
-			result = False
-			print(e)
-
-		return result
-
-	"""
-	Function for receiving data
-	"""
-	def receive(self):
-		result = None
-		try :
-			result = self.s.recv(1024).decode('CP1252')
-		except Exception as e :
-			result = None
-			print(e)
+			logging.error(str(e))
 
 		return result
 
@@ -98,47 +60,56 @@ class PCLess(object):
 	COMMAND GLOBAL FUNCTION
 	PRINT STRUCT
 	"""
-	def send_print(self):
-		array_pr = []
-		array_pr.append(self.format_command("PR4-------------------"+CRLF))
-		array_pr.append(self.format_command("PR4SELAMAT DATANG"+CRLF))
-		array_pr.append(self.format_command("PR4SELAMAT BERBELANJA"+CRLF))
-		array_pr.append(self.format_command("PR4TERIMAKASIH"+CRLF))
-		array_pr.append(self.format_command("PR4-------------------"+CRLF))
+	def send_print(self, baud_rate_id, data_print, is_crlf=True):
+		if(is_crlf == True):
+			self.send(self.format_command("PR"+str(baud_rate_id)+str(data_print)+CRLF))
+		else :
+			self.send(self.format_command("PR"+str(baud_rate_id)+str(data_print)))
 
-		for s in array_pr :
-			self.send(s)
-
-	""" 
-	MAIN PROGRAM PCLESS SERIAL
 	"""
-	def deploy(self) :
+	Function disconnecting socket
+	"""
+	def disconnect(self):
+		result = True
+		try :
+			if (self.s != None):
+				self.s.close()
+		except Exception as e :
+			result = False
+			logging.error(str(e))
 
-		# always reconnecting forever
-		while self.reconnect :
-			
-			# connect serial ethernet Wizz
-			if(self.connect()):
+		return result
 
-				# Connect OK, reconnect set to False, and command_listen True
-				reconnect = False
-				command_listen = True
+	"""
+	Function send data
+	"""
+	def send(self, data):
+		result = True
+		try :
+			self.s.send(data.encode('CP1252'))
+		except Exception as e :
+			logging.error(str(e))
+			result = False
+			# error reconnecting
+			if(type(e).__name__ == 'OSError'):
+				self.connect()
 
-				# waiting command
-				while command_listen :
-					i = input()
-					# sending data
-					print("Sending data...")
-					cstr = self.cetak_struk()
-					for cs in cstr :
-						if(self.send(cs) == False):
-							# close command & reload connection
-							reconnect = True
-							command_listen = False
-						else :
-							print(self.receive())
+		return result
 
-
-				# reconnecting...
-				print("Reconnecting...")
-				time.sleep(1);
+	"""
+	Function for receiving data
+	"""
+	def receive(self):
+		result = None
+		try :
+			result = self.s.recv(1024).decode('CP1252')
+		except Exception as e :
+			logging.error(str(e))
+			# error reconnecting
+			if(type(e).__name__ == 'OSError'):
+				self.connect()
+				time.sleep(1)
+			if(type(e).__name__ == 'ConnectionResetError'):
+				self.connect()
+				time.sleep(1)
+		return result
