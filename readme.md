@@ -3,7 +3,7 @@ Create table ticket_log first in postgresql<br/>
 file sql -> ticket_log.sql <br />
 <br />
 How to run this script<br />
-> python .\webserver.py -H 0.0.0.0 -P 80 -ctv "http://admin:Spasi2019@192.168.0.100/ISAPI/Streaming/channels/101/picture" -ctvu "admin" -ctvp "Spasi2019" -pth "F:\\DIY\\SOFTWARE\\udp_forwarder\\captures" -plh 192.168.0.50 -plp 5000
+> python .\webserver.py -H 0.0.0.0 -P 80 -ctv "http://admin:Spasi2019@192.168.0.100/ISAPI/Streaming/channels/101/picture" -ctvu "admin" -ctvp "Spasi2019" -pth "F:\\DIY\\SOFTWARE\\udp_forwarder\\captures" -plh 192.168.0.50 -plp 5000 -htm "TRANSMART" -ttm "Jl. Raya Pancoran Mas"
 <br />
 # HOW TO USAGE <br />
 usage: webserver.py [-h] [-H HOSTNAME] [-P PORT] [-plh PCLESS_HOST]
@@ -25,9 +25,14 @@ optional arguments: <br /><br />
 for windows executable <br />
 cd /output/webserver <br />
 > webserver.exe -H 0.0.0.0 -P 80 -ctv "http://admin:Spasi2019@192.168.0.100/ISAPI/Streaming/channels/101/picture" <br />
--ctvu "admin" -ctvp "Spasi2019" -pth "F:\\DIY\\SOFTWARE\\udp_forwarder\\captures" -plh 192.168.0.50 -plp 5000
+-ctvu "admin" -ctvp "Spasi2019" -pth "F:\\DIY\\SOFTWARE\\udp_forwarder\\captures" -plh 192.168.0.50 -plp 5000 -htm "TRANSMART" -ttm "Jl. Raya Pancoran Mas"
 
 <br />
 <br />
 #POSTMAN<br/>
 <img src="https://i.ibb.co/T45Nkvp/how-request.jpg" />
+<br />
+#SAMPLE TICKET<br />
+<img src="https://i.ibb.co/SrRSSss/Whats-App-Image-2019-10-29-at-09-10-47.jpg" /><br />
+#TABLE TICKET_LOG
+<img src="https://i.ibb.co/R4dh325/table-ticket.jpg" />

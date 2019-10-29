@@ -12,7 +12,10 @@ import threading
 import configparser
 from argparse import ArgumentParser
 from pcless_lib import url_to_image
+import datetime
 import sys
+import uuid
+import re
 
 logging.basicConfig(filename='pcless.log', filemode='a+', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
@@ -38,6 +41,8 @@ parser.add_argument("-ctv", "--cctv_url", dest="cctv_url", help="Set CCTV URL")
 parser.add_argument("-ctvu", "--cctv_user", dest="cctv_user", help="Set CCTV user")
 parser.add_argument("-ctvp", "--cctv_pass", dest="cctv_pass", help="Set CCTV pass")
 parser.add_argument("-pth", "--path", dest="path", help="Set path")
+parser.add_argument("-htm", "--header_thermal", dest="header_thermal", help="Set header thermal")
+parser.add_argument("-ttm", "--title_thermal", dest="title_thermal", help="Set title thermal")
 
 args = parser.parse_args()
 
@@ -72,6 +77,12 @@ if (args.cctv_pass== None):
 if (args.path ==  None):
     print("Path directory for save image is requred!")
 
+if (args.header_thermal ==  None):
+    print("Header thermal printing is requred!")
+
+if (args.title_thermal ==  None):
+    print("Title thermal printing is requred!")
+
 pcless = PCLess(str(args.pcless_host) ,int(args.pcless_port))
 
 """
@@ -99,33 +110,50 @@ def workflow_job():
     
     if(rspv == '¦IN2ON©'):
         if((pcless.track_flow > 0) and (pcless.track_flow < 2)):
+            # create UUID code 10 character
+            code10 = str(uuid.uuid4().hex[:10]).upper()
 
             """
             STEP I
             """
             # play voice track
             pcless.send(pcless.voice('2'))
-            t_capture = threading.Thread(target=url_to_image, args=(str(args.cctv_url),str(args.cctv_user),str(args.cctv_pass), str(args.path),))
+            t_capture = threading.Thread(target=url_to_image, args=(code10,str(args.cctv_url),str(args.cctv_user),str(args.cctv_pass), str(args.path),))
             t_capture.start()
             
+            # give more time
+            time.sleep(0.2)
             """
             STEP II
             """
-
             # thermal print number
-            time.sleep(0.1)
-            pcless.send_print(4,'------------------------------------------------')
-            time.sleep(0.1)
-            pcless.send_print(4,'               SELAMAT DATANG                   ')
-            time.sleep(0.1)
-            pcless.send_print(4,'         Jumat, 21-12-2019 | 21:15              ')                      
-            time.sleep(0.1)
-            pcless.send_print(4,'         ACC0234102394534952323444              ')
-            time.sleep(0.1)
-            pcless.send_print(4,' JANGAN MENINGGALKAN TIKEN DAN BARANG BERHARGA  ')
-            time.sleep(0.1)
-            pcless.send_print(4,'      ANDA, KENDARAAN INAP WAJIB LAPOR          ')
-            time.sleep(0.1)
+            datenow = datetime.datetime.now()
+            datenow = datenow.strftime("TANGGAL : %d/%m/%Y     %H:%M:%S")
+            escpos_command = '' # new line
+            escpos_command += '\x1b\x61\x01' # alignment center
+            escpos_command += '\x1b\x4d\x00' # set font type A
+            escpos_command += '\x1b\x21\x20' # double width
+            escpos_command += str(args.header_thermal)+'\x0a'
+            escpos_command += '\x1b\x21\x00'
+            escpos_command += str(args.title_thermal)+'\x0a'
+            escpos_command += '\x0a'
+            escpos_command += datenow+'\x0a\x0a'
+            escpos_command += '\x1b\x21\x00' # normal text
+            escpos_command += '\x1b\x61\x01' # double width
+            escpos_command += '\x1d\x6b\x04'+code10+'\x00' # barcode
+            escpos_command += '\x1b\x21\x00' # normal text
+            escpos_command += '\x1b\x21\x20' # double width
+            escpos_command += ' '+re.sub("(.)", r'\1 ',code10) # barcode code
+            escpos_command += '\x0a\x0a\x0a'
+            escpos_command += '\x1b\x21\x00'
+            escpos_command += '*** TERIMAKASIH ***'
+            escpos_command += '\x0a\x0a\x0a\x0a\x0a\x0a' # newline cutter
+            escpos_command += '\x1d\x56\x00' # full cut paper
+            escpos_command += '\x1b\x3f\x0a\x00' # full cut paper
+            pcless.send_print(4,escpos_command)
+
+            # give more time
+            time.sleep(0.2)
 
             """
             STEP III

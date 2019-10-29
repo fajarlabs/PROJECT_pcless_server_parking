@@ -3605,14 +3605,90 @@
 27-Oct-19 11:02:34 - Starting Timeloop..
 27-Oct-19 11:02:34 - Registered job <function workflow_job at 0x000001B634514948>
 27-Oct-19 11:02:34 - Timeloop now started. Jobs will run based on the interval set
-27-Oct-19 12:06:08 - Starting Timeloop..
-27-Oct-19 12:06:08 - Registered job <function workflow_job at 0x000001CB3FC53B88>
-27-Oct-19 12:06:08 - Timeloop now started. Jobs will run based on the interval set
-27-Oct-19 12:55:19 - Starting Timeloop..
-27-Oct-19 12:55:19 - Registered job <function workflow_job at 0x000001FF91D23B88>
-27-Oct-19 12:55:19 - Timeloop now started. Jobs will run based on the interval set
-27-Oct-19 14:55:53 - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-27-Oct-19 14:55:53 - Starting Timeloop..
-27-Oct-19 14:55:53 - [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
-27-Oct-19 14:55:53 - Registered job <function workflow_job at 0x000001A8553D3B88>
-27-Oct-19 14:55:53 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 15:41:37 - Starting Timeloop..
+27-Oct-19 15:41:37 - Registered job <function workflow_job at 0x00000147CA4D3DC8>
+27-Oct-19 15:41:37 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:01:10 - Starting Timeloop..
+27-Oct-19 16:01:10 - Registered job <function workflow_job at 0x00000254F20B3DC8>
+27-Oct-19 16:01:10 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:01:21 - Starting Timeloop..
+27-Oct-19 16:01:21 - Registered job <function workflow_job at 0x000001E6CCA43DC8>
+27-Oct-19 16:01:21 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:01:30 - Starting Timeloop..
+27-Oct-19 16:01:30 - Registered job <function workflow_job at 0x0000017063EE3DC8>
+27-Oct-19 16:01:30 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:02:53 - Starting Timeloop..
+27-Oct-19 16:02:53 - Registered job <function workflow_job at 0x0000021B832E3DC8>
+27-Oct-19 16:02:53 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:03:49 - Starting Timeloop..
+27-Oct-19 16:03:49 - Registered job <function workflow_job at 0x000001AF1A2B3DC8>
+27-Oct-19 16:03:49 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:04:02 - Starting Timeloop..
+27-Oct-19 16:04:02 - Registered job <function workflow_job at 0x0000015007B73DC8>
+27-Oct-19 16:04:02 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:05:08 - Starting Timeloop..
+27-Oct-19 16:05:08 - Registered job <function workflow_job at 0x000001D3A2843DC8>
+27-Oct-19 16:05:08 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:05:35 - Starting Timeloop..
+27-Oct-19 16:05:35 - Registered job <function workflow_job at 0x00000126CA493DC8>
+27-Oct-19 16:05:35 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:05:58 - Starting Timeloop..
+27-Oct-19 16:05:58 - Registered job <function workflow_job at 0x0000027754C93DC8>
+27-Oct-19 16:05:58 - Timeloop now started. Jobs will run based on the interval set
+27-Oct-19 16:09:46 - Starting Timeloop..
+27-Oct-19 16:09:46 - Registered job <function workflow_job at 0x0000029A79303DC8>
+27-Oct-19 16:09:46 - Timeloop now started. Jobs will run based on the interval set
+28-Oct-19 23:17:34 - 'charmap' codec can't encode characters in position 5-6: character maps to <undefined>
+28-Oct-19 23:17:37 - 'charmap' codec can't encode characters in position 5-6: character maps to <undefined>
+28-Oct-19 23:17:46 - 'charmap' codec can't encode characters in position 5-6: character maps to <undefined>
+28-Oct-19 23:17:49 - 'charmap' codec can't encode characters in position 5-6: character maps to <undefined>
+29-Oct-19 07:12:06 - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+29-Oct-19 07:12:06 - Starting Timeloop..
+29-Oct-19 07:12:06 - [WinError 10057] A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+29-Oct-19 07:12:06 - Registered job <function workflow_job at 0x00000245BC8209D8>
+29-Oct-19 07:12:06 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 08:56:05 - Starting Timeloop..
+29-Oct-19 08:56:05 - Registered job <function workflow_job at 0x000001F9FFDCF948>
+29-Oct-19 08:56:05 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 08:59:52 - Starting Timeloop..
+29-Oct-19 08:59:52 - Registered job <function workflow_job at 0x0000022943C1F948>
+29-Oct-19 08:59:52 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:00:21 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002294B819808>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
+29-Oct-19 09:01:00 - Starting Timeloop..
+29-Oct-19 09:01:00 - Registered job <function workflow_job at 0x0000023176EFE948>
+29-Oct-19 09:01:00 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:01:28 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002317EAED748>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
+29-Oct-19 09:02:54 - 'NoneType' object has no attribute 'send'
+29-Oct-19 09:02:54 - Starting Timeloop..
+29-Oct-19 09:02:54 - Registered job <function workflow_job at 0x000001F858CC0678>
+29-Oct-19 09:02:54 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:03:36 - 'NoneType' object has no attribute 'send'
+29-Oct-19 09:03:36 - Starting Timeloop..
+29-Oct-19 09:03:36 - Registered job <function workflow_job at 0x000001A73E910678>
+29-Oct-19 09:03:36 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:03:44 - 'NoneType' object has no attribute 'send'
+29-Oct-19 09:03:44 - Starting Timeloop..
+29-Oct-19 09:03:44 - Registered job <function workflow_job at 0x000002792EDA0678>
+29-Oct-19 09:03:44 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:04:52 - Starting Timeloop..
+29-Oct-19 09:04:52 - Registered job <function workflow_job at 0x000001D360310948>
+29-Oct-19 09:04:52 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:06:09 - Starting Timeloop..
+29-Oct-19 09:06:09 - Registered job <function workflow_job at 0x00000258D2ABE948>
+29-Oct-19 09:06:09 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:06:45 - Starting Timeloop..
+29-Oct-19 09:06:45 - Registered job <function workflow_job at 0x000001DA1BD9E948>
+29-Oct-19 09:06:45 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:09:30 - Starting Timeloop..
+29-Oct-19 09:09:30 - Registered job <function workflow_job at 0x0000023DA1FFE948>
+29-Oct-19 09:09:30 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:09:56 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023DA9BF8608>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
+29-Oct-19 09:19:18 - Starting Timeloop..
+29-Oct-19 09:19:18 - Registered job <function workflow_job at 0x000001E9AD08E948>
+29-Oct-19 09:19:18 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:19:50 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E9B4C8A5C8>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
+29-Oct-19 09:19:54 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E9B4C9F108>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
+29-Oct-19 09:41:32 - Starting Timeloop..
+29-Oct-19 09:41:32 - Registered job <function workflow_job at 0x00000219C406A048>
+29-Oct-19 09:41:32 - Timeloop now started. Jobs will run based on the interval set
+29-Oct-19 09:42:16 - HTTPConnectionPool(host='192.168.0.100', port=80): Max retries exceeded with url: /ISAPI/Streaming/channels/101/picture (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000219C40E0D88>: Failed to establish a new connection: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond'))
