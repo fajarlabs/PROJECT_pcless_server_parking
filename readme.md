@@ -35,6 +35,9 @@ cd /output/webserver <br />
 <img src="https://i.ibb.co/T45Nkvp/how-request.jpg" />
 <br />
 #SAMPLE TICKET<br />
-<img src="https://i.ibb.co/SrRSSss/Whats-App-Image-2019-10-29-at-09-10-47.jpg" /><br />
+<img width="200" height="100" src="https://i.ibb.co/SrRSSss/Whats-App-Image-2019-10-29-at-09-10-47.jpg" /><br />
 #TABLE TICKET_LOG
-<img src="https://i.ibb.co/R4dh325/table-ticket.jpg" />
+<img width="200" height="100" src="https://i.ibb.co/R4dh325/table-ticket.jpg" />
+<br />
+#GATEOUT
+<img width="200" height="100" src="https://i.ibb.co/swKW9nM/gateout.jpg" />
