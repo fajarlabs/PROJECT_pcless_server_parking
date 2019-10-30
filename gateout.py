@@ -13,7 +13,8 @@ logging.basicConfig(filename='gateout.log', filemode='a+', format='%(asctime)s -
 
 RESPONSE_TIMEOUT = 5.0 #seconds
 loop_unlock = False
-timer_response = None
+timer_timeout = None
+response_list = []
 """ 
 ----------------------------------------------------------------------------------------------------------
 FUNCTION TO STOP ITERATE (WHILE)
@@ -85,15 +86,28 @@ def task_connect():
 			try :
 				ser.open()
 			except Exception as e :
+				print(e)
 				logging.error(str(e))
+		else :
+			bytesToRead = ser.inWaiting()
+			serial_decode = ser.read(bytesToRead).decode()
+			if (serial_decode != ''):
+				response_list.append(serial_decode)
+	except Exception as e :
+		print(e)
+		logging.error(str(e))
+
+	try :
+		bytesToRead = ser.inWaiting()
+		serial_response += ser.read(bytesToRead).decode()
 	except Exception as e :
 		logging.error(str(e))
 
 # check connection in every 2 seconds
 timer_reconnect = QtCore.QTimer()
-timer_reconnect.setSingleShot(True)
+#timer_reconnect.setSingleShot(True) # only once
 timer_reconnect.timeout.connect(task_connect)
-timer_reconnect.start(2000)
+timer_reconnect.start(100)
 
 """
 ----------------------------------------------------------------------------------------
@@ -111,52 +125,48 @@ def index():
 def command():
 	global ser
 	global loop_unlock
-	global timer_response
+	global timer_timeout
+
+	# clear result
+	del response_list[:]
 
 	# reet lock loop
 	loop_unlock = False
 
 	# reset timer and start again
-	if(timer_response != None):
-		if(timer_response.is_alive()):
-			timer_response.cancel()
+	if(timer_timeout != None):
+		if(timer_timeout.is_alive()):
+			timer_timeout.cancel()
 
 	# timer response
-	timer_response = Timer(RESPONSE_TIMEOUT, release_lock)
-	timer_response.start()
+	timer_timeout = Timer(RESPONSE_TIMEOUT, release_lock)
+	timer_timeout.start()
 
 	# get request
 	cmd = request.forms.get('cmd')
 	status = "failed"
 	desc = ""
 
-	# concatenate response
-	serial_response = ""
-
 	# send serial command
 	ser.write(cmd.encode())
 
 	while True :
-
 		# release lock
 		if loop_unlock : break
 
 		# check caracter '#' is exist
-		if '#' in serial_response :
+		if ('*TRIG1OK#' in response_list) or \
+		('*OUT1ONOK#' in response_list) or \
+		('*OUT1OFFOK#' in response_list) or \
+		('*OPEN1OK#' in response_list) :
 			desc = "complete"
 			status = "ok"
 			break
 		
-		try :
-			bytesToRead = ser.inWaiting()
-			serial_response += ser.read(bytesToRead).decode()
-		except Exception as e :
-			logging.error(str(e))
-
 		time.sleep(0.2)
 
 	try :
-		rv = { "status": status, "response": serial_response, "description": desc }
+		rv = { "status": status, "response": response_list, "description": desc }
 		response.content_type = 'application/json'
 	except Exception as e :
 		print(e)

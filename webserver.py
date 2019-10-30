@@ -22,7 +22,7 @@ logging.basicConfig(filename='pcless.log', filemode='a+', format='%(asctime)s - 
 tm_loop = Timeloop()
 response_list = []
 pcless = None
-timer_response = None
+timer_timeout = None
 
 RESPONSE_TIMEOUT = 30.0 #seconds
 loop_unlock = False
@@ -208,7 +208,7 @@ def command():
     global response_list
     global pcless
     global loop_unlock
-    global timer_response
+    global timer_timeout
 
     cmd = request.forms.get('cmd')
     list_data = request.forms.getlist('data[]')
@@ -229,12 +229,12 @@ def command():
     # release loop, set to false
     loop_unlock = False
     # reset timer and start again
-    if(timer_response != None):
-        if(timer_response.is_alive()):
-            timer_response.cancel()
+    if(timer_timeout != None):
+        if(timer_timeout.is_alive()):
+            timer_timeout.cancel()
     # create new time
-    timer_response = Timer(RESPONSE_TIMEOUT, release_lock)
-    timer_response.start()
+    timer_timeout = Timer(RESPONSE_TIMEOUT, release_lock)
+    timer_timeout.start()
 
     try :
         if (cmd != ""):
