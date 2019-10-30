@@ -20,8 +20,8 @@ optional arguments: <br /><br />
   -ctv CCTV_URL, --cctv_url CCTV_URL Set CCTV URL <br />
   -ctvu CCTV_USER, --cctv_user CCTV_USER Set CCTV user <br />
   -ctvp CCTV_PASS, --cctv_pass CCTV_PASS Set CCTV pass <br />
-  -pth PATH, --path PATH Set path <br /><br />
-  -htm HEADER_THERMAL, --header_thermal HEADER_THERMAL Set top header ticket <br /><br />
+  -pth PATH, --path PATH Set path <br />
+  -htm HEADER_THERMAL, --header_thermal HEADER_THERMAL Set top header ticket <br />
   -ttm TITLE_THERMAL, --title_thermal TITLE_THERMAL Set title thermal <br /><br />
 
 for windows executable <br />
@@ -38,3 +38,6 @@ cd /output/webserver <br />
 <img src="https://i.ibb.co/SrRSSss/Whats-App-Image-2019-10-29-at-09-10-47.jpg" /><br />
 #TABLE TICKET_LOG
 <img src="https://i.ibb.co/R4dh325/table-ticket.jpg" />
+<br />
+#GATEOUT
+<img src="https://i.ibb.co/swKW9nM/gateout.jpg" />
