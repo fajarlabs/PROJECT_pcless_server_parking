@@ -40,4 +40,4 @@ cd /output/webserver <br />
 <img src="https://i.ibb.co/R4dh325/table-ticket.jpg" />
 <br />
 #GATEOUT
-<img src="https://i.ibb.co/swKW9nM/gateout.jpg" />
+<img src="https://i.ibb.co/cQsn8N3/gateout.jpg" />
