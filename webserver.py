@@ -234,20 +234,20 @@ def command():
             timer_response.cancel()
     # create new time
     timer_response = Timer(RESPONSE_TIMEOUT, release_lock)
+    timer_response.start()
 
     try :
         if (cmd != ""):
             if (cmd == "voice"):
                 if(pcless.send(pcless.voice(data)) == True):
-                    timer_response.start()
                     while True :
                         if loop_unlock : break
                         if(('¦MTOK©' in response_list) and ('¦PLAYEND©' in response_list)): break
                     status = "ok"
             elif (cmd == "print"):
-                for item_data in list_data : 
-                    pcless.send_print(int(baud_rate_id), item_data)
-                    time.sleep(0.2)
+                # for item_data in list_data : 
+                #     pcless.send_print(int(baud_rate_id), item_data)
+                #     time.sleep(0.2)
                 status = "ok"
             else :
                 if(pcless.send(pcless.format_command(cmd))):
