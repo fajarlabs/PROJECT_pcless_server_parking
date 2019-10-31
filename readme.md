@@ -32,7 +32,7 @@ cd /output/webserver <br />
 <br />
 <br />
 #POSTMAN<br/>
-<img src="https://i.ibb.co/T45Nkvp/how-request.jpg" />
+<img src="https://i.ibb.co/4SvXw40/postman.jpg" />
 <br />
 #SAMPLE TICKET<br />
 <img src="https://i.ibb.co/SrRSSss/Whats-App-Image-2019-10-29-at-09-10-47.jpg" /><br />
