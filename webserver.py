@@ -211,7 +211,6 @@ def command():
     global timer_timeout
 
     cmd = request.forms.get('cmd')
-    list_data = request.forms.getlist('data[]')
     data = request.forms.get('data')
     baud_rate_id = request.forms.get('baud_rate_id')
     status = "failed"
@@ -220,7 +219,6 @@ def command():
     debug form-data
     """
     # print(cmd)
-    # print(list_data)
     # print(data)
     # print(baud_rate_id)
 
@@ -244,20 +242,16 @@ def command():
                         if loop_unlock : break
                         if(('¦MTOK©' in response_list) and ('¦PLAYEND©' in response_list)): break
                     status = "ok"
-            elif (cmd == "print"):
-                # for item_data in list_data : 
-                #     pcless.send_print(int(baud_rate_id), item_data)
-                #     time.sleep(0.2)
-                status = "ok"
             else :
                 if(pcless.send(pcless.format_command(cmd))):
                     time.sleep(0.2)
                     status = "ok"
     except Exception as e :
-        print(e)
+        logging.error(str(e))
+        status = 'failed'
 
     try :
-        rv = { "status": "ok", "response": response_list }
+        rv = { "status": status,"response": response_list }
         response.content_type = 'application/json'
     except Exception as e :
         print(e)

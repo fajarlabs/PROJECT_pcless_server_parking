@@ -11,6 +11,7 @@ import time
 
 logging.basicConfig(filename='gateout.log', filemode='a+', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 
+DEFINITION_OUTPUT = ['*TRIG1OK#','*OUT1ONOK#','*OUT1OFFOK#','*OPEN1OK#']
 RESPONSE_TIMEOUT = 5.0 #seconds
 loop_unlock = False
 timer_timeout = None
@@ -154,15 +155,16 @@ def command():
 		# release lock
 		if loop_unlock : break
 
-		# check caracter '#' is exist
-		if ('*TRIG1OK#' in response_list) or \
-		('*OUT1ONOK#' in response_list) or \
-		('*OUT1OFFOK#' in response_list) or \
-		('*OPEN1OK#' in response_list) :
-			desc = "complete"
-			status = "ok"
-			break
-		
+		stop_loop = False
+		for DF in DEFINITION_OUTPUT :
+			if DF in response_list :
+				desc = "complete"
+				status = "ok"
+				stop_loop = True
+				break
+
+		if stop_loop : break
+
 		time.sleep(0.2)
 
 	try :
